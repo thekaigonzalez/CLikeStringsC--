@@ -10,6 +10,7 @@ class CString {
             s = c;
         }
         std::string Parse() {
+            
             std::string newstring;
             for (uint i = 0; i < s.length(); i++) {
                 if (s[i] == '\\') {
@@ -42,6 +43,10 @@ class CString {
 };
 
 std::string PrettyPrint(std::string cstring) {
+    if (cstring[0] != '\"') {
+                std::cout << "error: cstring: 1: not a string" << std::endl;
+                return "ERROR";
+    }
     std::string OPEN;
     std::stringstream ss(cstring);
     std::string entstring;
